@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 228.54 179.75">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #49c0eb;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2, .cls-4 {
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        stroke: #ee7426;
+      }
+
+      .cls-3 {
+        stroke: #040000;
+      }
+
+      .cls-4 {
+        opacity: .6;
+        stroke: #6fba2f;
+      }
+
+      .cls-5 {
+        fill: #231815;
+      }
+
+      .cls-5, .cls-6 {
+        stroke-width: 0px;
+      }
+
+      .cls-6 {
+        fill: #040000;
+      }
+    </style>
+  </defs>
+  <g id="_3" data-name="3">
+    <g>
+      <line class="cls-3" x1="24.27" y1="152.66" x2="228.54" y2="152.66"/>
+      <polygon class="cls-6" points="25.86 154.98 17.18 152.66 25.86 150.33 25.86 154.98"/>
+    </g>
+    <g>
+      <line class="cls-3" x1="133.31" y1="179.75" x2="133.31" y2="32.81"/>
+      <polygon class="cls-6" points="135.64 34.39 133.31 25.72 130.99 34.39 135.64 34.39"/>
+    </g>
+    <path class="cls-5" d="M127.25,17.16v-2.61l7.52-9.29h-6.67v-2.42h10.48v2.25l-7.84,9.66h8.14v2.41h-11.63Z"/>
+    <path class="cls-5" d="M5.24,160.37v-6.03L0,146.05h3.39l3.37,5.66,3.3-5.66h3.33l-5.26,8.31v6.01h-2.88Z"/>
+  </g>
+  <g id="_3-2" data-name="3">
+    <polyline class="cls-4" points="133.31 152.66 73.89 93.24 192.81 93.24 133.39 152.66"/>
+  </g>
+  <g id="_3正" data-name="3正">
+    <polyline class="cls-2" points="132.57 152.62 108.88 71.99 213.27 128.97 132.64 152.66"/>
+  </g>
+  <g id="_3负" data-name="3负">
+    <polyline class="cls-1" points="133.66 151.65 51.23 135.34 150.04 69.17 133.73 151.6"/>
+  </g>
+</svg>

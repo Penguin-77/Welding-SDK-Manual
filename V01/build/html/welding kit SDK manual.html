@@ -1,0 +1,1009 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. 概述 &mdash; Welding Kit SDK API Manual V01 文档</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=3ee1c6c6" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ecde6cc0"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=beaddf03"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="Welding Kit SDK API Manual documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Welding Kit SDK API Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id2">2. 快速开始</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2.1. 环境要求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">2.2. 软件版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">2.3. 开始前准备</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#id6">3. 术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#c">4. C++</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id7">4.1. 结构体定义</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dwelldelaytype">4.1.1. 摆焊左右停留类型（ <code class="docutils literal notranslate"><span class="pre">DwellDelayType</span></code> ）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blendweaveendmode">4.1.2. 摆焊连接模式（ <code class="docutils literal notranslate"><span class="pre">BlendWeaveEndMode</span></code> ）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#weaveframetype">4.1.3. 摆焊平面选择（ <code class="docutils literal notranslate"><span class="pre">WeaveFrameType</span></code> ）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#weaveconfig">4.1.4. 摆焊轨迹定义（ <code class="docutils literal notranslate"><span class="pre">WeaveConfig</span></code> ）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#weaveparams">4.1.5. 摆焊基本参数（ <code class="docutils literal notranslate"><span class="pre">WeaveParams</span></code> ）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#weavegradient">4.1.6. 摆焊渐变参数（ <code class="docutils literal notranslate"><span class="pre">WeaveGradient</span></code> ）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reserveregisters">4.1.7. 预留寄存器接口（ <code class="docutils literal notranslate"><span class="pre">ReserveRegisters</span></code> ）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">4.2. 接口说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">4.2.1. 单例与初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">4.2.2. 启动摆焊</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#z-weavezsine">4.2.2.1. 启动Z字摆（ <code class="docutils literal notranslate"><span class="pre">WeaveZsine</span></code> ）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">4.2.2.2. 启动其他摆型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">4.2.2.3. 结束摆焊</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">4.2.2.4. 获取摆焊参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">4.2.2.5. 调节摆焊参数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#python">5. Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id15">5.1. 结构体定义</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id16">5.1.1. 摆焊参数（ <code class="docutils literal notranslate"><span class="pre">WeaveParams</span></code> ）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">5.1.2. 摆焊渐变参数（ <code class="docutils literal notranslate"><span class="pre">WeaveGradient</span></code> ）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">5.1.3. 摆焊配置参数（ <code class="docutils literal notranslate"><span class="pre">WeaveConfig</span></code> ）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">5.1.4. 预留寄存器（ <code class="docutils literal notranslate"><span class="pre">ReserveRegisters</span></code> ）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">5.2. 接口定义</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id21">5.2.1. 单例与初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">5.2.2. 启动摆焊</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id23">5.2.2.1. 启动Z字摆（ <code class="docutils literal notranslate"><span class="pre">WeaveZsine</span></code> ）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">5.2.2.2. 启动其他摆型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id25">5.2.2.3. 结束摆焊</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id26">5.2.2.4. 摆焊状态确认</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id27">5.2.2.5. 获取摆焊参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id28">5.2.2.6. 调节摆焊参数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#id29">6. 错误代码</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id30">6.1. c++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id31">6.2. Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#id32">7. 使用示例</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id33">7.1. 基础摆焊流程（c++）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id34">7.2. 基础摆焊流程（python）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#id35">8. 更新日志</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Welding Kit SDK API Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>概述</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/welding kit SDK manual.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">1. </span>概述<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<p>焊接 SDK 是一套用于控制焊接机器人执行多种摆焊轨迹的编程接口。提供了摆焊参数配置、实时控制、状态反馈功能，支持 Z字摆、三角摆、台形摆、月牙摆、正弦摆、圆形摆、8字摆，适用于自动化焊接生产线、机器人焊接工作站等工业场景。</p>
+<p>本文档介绍了JAKA焊接工艺包专用SDK接口的规格和使用案例。适用于 V2.3.0版本的JAKA SDK软件包。</p>
+</section>
+<section id="id2">
+<h1><span class="section-number">2. </span>快速开始<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
+<section id="id3">
+<h2><span class="section-number">2.1. </span>环境要求<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>操作系统：</strong> Windows 10/11, Linux (Ubuntu 18.04+)</p></li>
+<li><p><strong>编译器：</strong> 支持 C++11 标准的编译器（ MSVC 2017+）；Python 3.10</p></li>
+<li><p><strong>网络环境：</strong> 机器人控制器与开发机在同一局域网</p></li>
+<li><p><strong>编译语言：</strong> 支持Python，C++</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2><span class="section-number">2.2. </span>软件版本<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>JAKA焊接SDK适用于以下版本的软件：</p>
+<ul class="simple">
+<li><p>SDK：无限制</p></li>
+<li><p>控制器：v3.2.15(待定)</p></li>
+<li><p>App</p></li>
+<li><p>伺服</p></li>
+<li><p>SCB</p></li>
+<li><p>PSCB</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2><span class="section-number">2.3. </span>开始前准备<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<p>在开始调用焊接专用接口前，需确保已完成以下事项：</p>
+<ul>
+<li><p>已下载并安装合适版本的JAKA SDK安装包。JAKA SDK软件包可通过 <a class="reference external" href="https://www.jaka.com/zh/download">JAKA官网</a> 获取。</p></li>
+<li><p>已完成环境编译与配置。具体操作见 <a class="reference external" href="https://www.jaka.com/docs/guide/SDK/%E8%8A%82%E5%8D%A1%20SDK%20%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%20-%20CN.html">JAKA SDK手册的快速开始</a> 。</p></li>
+<li><p>导入模块。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>C++ 导入方式</p></li>
+</ul>
+<blockquote>
+<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;JAKASDK/JAKAZuRobot.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;WeldingSDK/WeldingSDK.h&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul>
+<li><p>Python 导入方式</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jakaWeldingSDK</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jakaZuRobot</span>  <span class="c1"># 机器人控制模块（可选）</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># 目录结构</span>
+📦cpp
+┣<span class="w"> </span>📂dll
+┃<span class="w"> </span>┗<span class="w"> </span>📜WeldingSDK.dll
+┣<span class="w"> </span>📂lib
+┃<span class="w"> </span>┗<span class="w"> </span>📜WeldingSDK.lib
+┗<span class="w"> </span>📂头文件
+┃<span class="w"> </span>┣<span class="w"> </span>📂nlohmann
+┃<span class="w"> </span>┃<span class="w"> </span>┗<span class="w"> </span>📜json.hpp
+┃<span class="w"> </span>┣<span class="w"> </span>📜welderr.h
+┃<span class="w"> </span>┣<span class="w"> </span>📜WeldingSDK.h
+┃<span class="w"> </span>┗<span class="w"> </span>📜WeldStruct.h
+
+📦python3.10
+┗<span class="w"> </span>📂jakaWeldingSDK
+┃<span class="w"> </span>┣<span class="w"> </span>📜pyweldingsdk.cp310-win_amd64.pyd
+┃<span class="w"> </span>┣<span class="w"> </span>📜pyweldingsdk.pyi
+┃<span class="w"> </span>┣<span class="w"> </span>📜WeldingSDK.dll
+┃<span class="w"> </span>┗<span class="w"> </span>📜__init__.py
+
+📦example
+┣<span class="w"> </span>📂cpp
+┃<span class="w"> </span>┣<span class="w"> </span>📂JAKASDK
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜jakaAPI.exp
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜jakaAPI.lib
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜JAKAZuRobot.h
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜jkerr.h
+┃<span class="w"> </span>┃<span class="w"> </span>┗<span class="w"> </span>📜jktypes.h
+┃<span class="w"> </span>┣<span class="w"> </span>📂WeldingSDK
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📂nlohmann
+┃<span class="w"> </span>┃<span class="w"> </span>┃<span class="w"> </span>┗<span class="w"> </span>📜json.hpp
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜welderr.h
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜WeldingSDK.h
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜WeldingSDK.lib
+┃<span class="w"> </span>┃<span class="w"> </span>┗<span class="w"> </span>📜WeldStruct.h
+┃<span class="w"> </span>┣<span class="w"> </span>📜example_GetWeaveParams.cpp
+┃<span class="w"> </span>┗<span class="w"> </span>📜example_RunWeave.cpp
+┗<span class="w"> </span>📂python
+┃<span class="w"> </span>┣<span class="w"> </span>📂jakaWeldingSDK
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜pyweldingsdk.cp310-win_amd64.pyd
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜pyweldingsdk.pyi
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜WeldingSDK.dll
+┃<span class="w"> </span>┃<span class="w"> </span>┗<span class="w"> </span>📜__init__.py
+┃<span class="w"> </span>┣<span class="w"> </span>📂jakaZuRobot
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜jakaAPI.dll
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜jakaAPI.exp
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜jakaAPI.lib
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜jkrc.exp
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜jkrc.lib
+┃<span class="w"> </span>┃<span class="w"> </span>┣<span class="w"> </span>📜jkrc.pyi
+┃<span class="w"> </span>┃<span class="w"> </span>┗<span class="w"> </span>📜__init__.py
+┃<span class="w"> </span>┣<span class="w"> </span>📜example_GetWeaveParams.py
+┃<span class="w"> </span>┗<span class="w"> </span>📜example_RunWeave.py
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id6">
+<h1><span class="section-number">3. </span>术语<a class="headerlink" href="#id6" title="Link to this heading"></a></h1>
+<ul>
+<li><p><strong>摆动模式：</strong></p>
+<ul>
+<li><p>Z字摆：焊枪末端一边走Z字形轨迹一边前进的焊接模式。前进轨迹可以为直线或圆弧。</p>
+<figure class="align-left" id="id36" style="width: 100%">
+<img alt="_images/1.svg" src="_images/1.svg" />
+<figcaption>
+<p><span class="caption-number">图 3.1 </span><span class="caption-text">Z 字摆</span><a class="headerlink" href="#id36" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>三角摆：焊枪末端一边走三角形轨迹一边前进的焊接模式。前进轨迹可以为直线或圆弧。</p></li>
+</ul>
+<figure class="align-left" id="id37" style="width: 100%">
+<img alt="_images/2.svg" src="_images/2.svg" />
+<figcaption>
+<p><span class="caption-number">图 3.2 </span><span class="caption-text">三角摆</span><a class="headerlink" href="#id37" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>台形摆：焊枪末端一边走倒放的梯形轨迹一边前进的焊接模式。前进轨迹可以为直线或圆弧。</p></li>
+</ul>
+<figure class="align-left" id="id38" style="width: 100%">
+<img alt="_images/3.svg" src="_images/3.svg" />
+<figcaption>
+<p><span class="caption-number">图 3.3 </span><span class="caption-text">台形摆</span><a class="headerlink" href="#id38" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>月牙摆：焊枪末端一边走圆弧形轨迹一边前进的焊接模式。前进轨迹可以为直线或圆弧。</p></li>
+</ul>
+<figure class="align-left" id="id39" style="width: 100%">
+<img alt="_images/4.svg" src="_images/4.svg" />
+<figcaption>
+<p><span class="caption-number">图 3.4 </span><span class="caption-text">月牙摆</span><a class="headerlink" href="#id39" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>正弦摆：焊枪末端一边走S形轨迹一边前进的焊接模式。前进轨迹可以为直线或圆弧。</p></li>
+</ul>
+<figure class="align-left" id="id40" style="width: 100%">
+<img alt="_images/5.svg" src="_images/5.svg" />
+<figcaption>
+<p><span class="caption-number">图 3.5 </span><span class="caption-text">正弦摆</span><a class="headerlink" href="#id40" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>圆形摆：焊枪末端一边走圆形或椭圆形轨迹一边前进的焊接模式。前进轨迹可以为直线或圆弧。</p></li>
+</ul>
+<figure class="align-left" id="id41" style="width: 100%">
+<img alt="_images/6.svg" src="_images/6.svg" />
+<figcaption>
+<p><span class="caption-number">图 3.6 </span><span class="caption-text">圆形摆</span><a class="headerlink" href="#id41" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>8字摆：焊枪末端一边走8字形轨迹一边前进的焊接模式。前进轨迹可以为直线或圆弧。</p></li>
+</ul>
+<figure class="align-left" id="id42" style="width: 100%">
+<img alt="_images/7.svg" src="_images/7.svg" />
+<figcaption>
+<p><span class="caption-number">图 3.7 </span><span class="caption-text">8字摆</span><a class="headerlink" href="#id42" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+</li>
+<li><p><strong>摆动频率</strong> ：焊枪在单位时间内完成的完整摆动周期数</p></li>
+<li><p><strong>左、右摆幅</strong> ：焊枪从中线位置向左（+Y）或向右（-Y）摆动的最大距离</p></li>
+<li><p><strong>摆长半径</strong> ：月牙摆、圆形摆和8字摆的摆动轨迹半径</p></li>
+<li><p><strong>左、右、中间停留时间</strong> ：焊枪在摆动极限位置或中心位置的停留时长</p></li>
+<li><p><strong>纵角</strong> ：指焊枪在焊接方向平面内的倾斜角度，即焊枪与焊缝垂直线的夹角。下图以正弦摆为例，其他摆动模式同理。</p>
+<blockquote>
+<div><figure class="align-left" style="width: 60%">
+<img alt="_images/8.svg" src="_images/8.svg" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ul class="simple">
+<li><p>Z：焊枪的z方向</p></li>
+<li><p>绿色线：纵角为0°</p></li>
+<li><p>橙色线：纵角为正值</p></li>
+<li><p>蓝色线：纵角为负值</p></li>
+</ul>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>横角</strong> ：指焊枪在垂直于焊接方向平面内的倾斜角度。下图以正弦摆为例，其他摆动模式同理。</p>
+<blockquote>
+<div><figure class="align-left" style="width: 100%">
+<img alt="_images/9.svg" src="_images/9.svg" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ul class="simple">
+<li><p>X：焊接方向</p></li>
+<li><p>绿色线：纵角为0°</p></li>
+<li><p>橙色线：纵角为正值</p></li>
+<li><p>蓝色线：纵角为负值</p></li>
+</ul>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>中心抬升量</strong> ：焊枪在摆动中心点相对于两侧的高度偏移</p></li>
+<li><p><strong>终点摆动频率</strong> ：临近焊缝终点的摆动频率</p></li>
+<li><p><strong>终点左、右摆幅</strong> ：临近焊缝终点的左右摆幅</p></li>
+<li><p><strong>渐变路径长度</strong> ：从开始启用渐变参数到焊接轨迹终点之间的距离</p></li>
+</ul>
+</section>
+<section id="c">
+<h1><span class="section-number">4. </span>C++<a class="headerlink" href="#c" title="Link to this heading"></a></h1>
+<p>本节将介绍JAKA SDK（C++、Python）中定义的数据类型和API，主要适用于使用C++创建与虚拟或真实控制器通信的机器人应用程序的软件开发人员。对于需要了解JAKA机器人控制器应用程序的用户也会有一定帮助。</p>
+<section id="id7">
+<h2><span class="section-number">4.1. </span>结构体定义<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<section id="dwelldelaytype">
+<h3><span class="section-number">4.1.1. </span>摆焊左右停留类型（ <code class="docutils literal notranslate"><span class="pre">DwellDelayType</span></code> ）<a class="headerlink" href="#dwelldelaytype" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DwellDelayType</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">uint8_t</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">DWELL_STOP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="c1">// 停止停留（默认）</span>
+<span class="w">    </span><span class="n">DWELL_MOVE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="c1">// 运动中停留</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><code class="docutils literal notranslate"><span class="pre">DWELL_STOP</span></code> : 焊枪到达摆幅极限位置后停止运动，停留指定时间后再反向运动。Z字摆，三角摆，台形摆，月牙摆为此种停留方式。</p>
+<p><code class="docutils literal notranslate"><span class="pre">DWELL_MOVE</span></code> : 焊枪到达摆幅极限位置后沿焊接方向继续运动，指定停留时间后再反向运动。正弦摆为此种停留方式。</p>
+</div>
+</section>
+<section id="blendweaveendmode">
+<h3><span class="section-number">4.1.2. </span>摆焊连接模式（ <code class="docutils literal notranslate"><span class="pre">BlendWeaveEndMode</span></code> ）<a class="headerlink" href="#blendweaveendmode" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BlendWeaveEndMode</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">uint8_t</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">BLEND_NO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="c1">// 不连接（默认）</span>
+<span class="w">    </span><span class="n">BLEND_YES</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1">// 平滑过渡</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><code class="docutils literal notranslate"><span class="pre">BLEND_YES</span></code> : 启用平滑过渡，即摆焊轨迹不强制经过中间点。目前仅支持这一种模式。</p>
+<p><code class="docutils literal notranslate"><span class="pre">BLEND_NO</span></code> : 不启用平滑过渡，即摆焊轨迹强制经过中间点。</p>
+</div>
+</section>
+<section id="weaveframetype">
+<h3><span class="section-number">4.1.3. </span>摆焊平面选择（ <code class="docutils literal notranslate"><span class="pre">WeaveFrameType</span></code> ）<a class="headerlink" href="#weaveframetype" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeaveFrameType</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">uint8_t</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">PATH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="c1">// 摆焊平面跟随焊枪</span>
+<span class="w">     </span><span class="n">TOOL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="c1">// 摆焊平面跟随工件</span>
+<span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><code class="docutils literal notranslate"><span class="pre">PATH</span> <span class="pre">=</span> <span class="pre">0</span></code> ：摆焊平面跟随焊枪末端，当前版本仅支持跟随焊枪。</p>
+<p><code class="docutils literal notranslate"><span class="pre">TOOL</span> <span class="pre">=</span> <span class="pre">1</span></code> ：摆焊平面跟随由起点和终点位置计算得出的工件平面，焊接过程中，机器人姿态会随之调整。</p>
+</div>
+</section>
+<section id="weaveconfig">
+<h3><span class="section-number">4.1.4. </span>摆焊轨迹定义（ <code class="docutils literal notranslate"><span class="pre">WeaveConfig</span></code> ）<a class="headerlink" href="#weaveconfig" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">WeaveConfig</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">DwellDelayType</span><span class="w"> </span><span class="n">dwell_delay_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DwellDelayType</span><span class="o">::</span><span class="n">DWELL_STOP</span><span class="p">;</span><span class="w">     </span><span class="c1">// 停留模式（正弦、圆形、8字摆动不支持停留模式）</span>
+<span class="w">    </span><span class="n">BlendWeaveEndMode</span><span class="w"> </span><span class="n">blend_weave_end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BlendWeaveEndMode</span><span class="o">::</span><span class="n">BLEND_YES</span><span class="p">;</span><span class="w"> </span><span class="c1">// 摆焊连接（默认平滑过渡）</span>
+<span class="w">    </span><span class="n">WeaveFrameType</span><span class="w"> </span><span class="n">frame_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WeaveFrameType</span><span class="w"> </span><span class="o">::</span><span class="n">PATH</span><span class="p">;</span><span class="w">                </span><span class="c1">// 摆焊平面跟随焊枪</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                                                </span><span class="c1">// 0:left ; 1:right 起摆方向，默认先左（+Y）起摆</span>
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">reserve</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w">                                         </span><span class="c1">// 预留参数（扩展用）</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</section>
+<section id="weaveparams">
+<h3><span class="section-number">4.1.5. </span>摆焊基本参数（ <code class="docutils literal notranslate"><span class="pre">WeaveParams</span></code> ）<a class="headerlink" href="#weaveparams" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">WeaveParams</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">swing_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">        </span><span class="c1">// 摆动模式(1:Z字 2:平面三角 3:台型 4:月牙 5:立焊三角 11:正弦 12:圆形 13:8字)</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">swing_frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.5f</span><span class="p">;</span><span class="w">  </span><span class="c1">// 摆动频率(Hz)，范围：0.1-10.0</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">right_amplitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.0f</span><span class="p">;</span><span class="w">  </span><span class="c1">// 右摆幅(mm)，范围：0-50.0</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">letf_amplitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.0f</span><span class="p">;</span><span class="w">   </span><span class="c1">// 左摆幅(mm)，范围：0-50.0</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span><span class="w">           </span><span class="c1">// 摆长半径(mm)，范围：0-50.0，月牙、圆形、8字摆参数</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">left_dwell_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span><span class="w">  </span><span class="c1">// 左停留时间(s)，范围：0-5.0</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">right_dwell_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span><span class="w"> </span><span class="c1">// 右停留时间(s)，范围：0-5.0</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">mid_dwell_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span><span class="w">   </span><span class="c1">// 中停留时间(s) // 平面三角、立焊三角参数</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">elevation_angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span><span class="w">  </span><span class="c1">// 纵角(°)，范围：–90-90</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">azimuth_angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span><span class="w">    </span><span class="c1">// 横角(°)，范围：–90-90</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">center_rise</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span><span class="w">      </span><span class="c1">// 中心抬升量(mm)，范围：–10-10</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><code class="docutils literal notranslate"><span class="pre">swing_mode</span></code> ：必须设置为对应的摆型编号</p>
+<p>不同摆型使用不同的参数组合，未使用的参数可忽略或设为0</p>
+</div>
+</section>
+<section id="weavegradient">
+<h3><span class="section-number">4.1.6. </span>摆焊渐变参数（ <code class="docutils literal notranslate"><span class="pre">WeaveGradient</span></code> ）<a class="headerlink" href="#weavegradient" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">WeaveGradient</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">left_amplitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span><span class="w">   </span><span class="c1">// 终点左摆幅(mm)，范围：0-50.0</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">right_amplitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span><span class="w">  </span><span class="c1">// 终点右摆幅(mm)，范围：0-50.0</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">swing_frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span><span class="w">  </span><span class="c1">// 终点摆动频率(Hz)，范围：0.1-10.0</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">left_dwell_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span><span class="w">  </span><span class="c1">// 左停留时间(s)，范围：0-5.0</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">right_dwell_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span><span class="w"> </span><span class="c1">// 右停留时间(s)，范围：0-5.0</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">path_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span><span class="w">      </span><span class="c1">// 渐变路径长度</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<ul class="simple">
+<li><p>圆形摆和8字摆不支持焊接渐变参数。</p></li>
+<li><p>只有正弦摆需要设置渐变路径长度( <code class="docutils literal notranslate"><span class="pre">path_length</span></code> )参数。</p></li>
+<li><p>渐变过程是线性的，从当前值逐步变化到目标值。</p></li>
+</ul>
+</div>
+</section>
+<section id="reserveregisters">
+<h3><span class="section-number">4.1.7. </span>预留寄存器接口（ <code class="docutils literal notranslate"><span class="pre">ReserveRegisters</span></code> ）<a class="headerlink" href="#reserveregisters" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">ReserveRegisters</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">float_regs</span><span class="p">;</span><span class="w">     </span><span class="c1">// 浮点寄存器</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int32_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">int_regs</span><span class="p">;</span><span class="w">     </span><span class="c1">// 整型寄存器</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">str_regs</span><span class="p">;</span><span class="w"> </span><span class="c1">// 字符串寄存器</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id8">
+<h2><span class="section-number">4.2. </span>接口说明<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<section id="id9">
+<h3><span class="section-number">4.2.1. </span>单例与初始化<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">GetInstance</span></code></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">WeldingSwingSDK</span><span class="w"> </span><span class="o">*</span><span class="nf">GetInstance</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 获取 SDK 的单例对象。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Int()</span></code></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">errno_t</span><span class="w"> </span><span class="n">Init</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 初始化 SDK 并连接到机器人控制器。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Destroy()</span></code></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">errno_t</span><span class="w"> </span><span class="nf">Destroy</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 销毁实例对象，建议在程序停止时主动销毁。</p>
+</section>
+<section id="id10">
+<h3><span class="section-number">4.2.2. </span>启动摆焊<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<section id="z-weavezsine">
+<h4><span class="section-number">4.2.2.1. </span>启动Z字摆（ <code class="docutils literal notranslate"><span class="pre">WeaveZsine</span></code> ）<a class="headerlink" href="#z-weavezsine" title="Link to this heading"></a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">errno_t</span><span class="w"> </span><span class="nf">WeaveZsine</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WeaveParams</span><span class="w"> </span><span class="n">params</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WeaveConfig</span><span class="w"> </span><span class="n">weave_param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WeaveConfig</span><span class="p">{},</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WeaveGradient</span><span class="w"> </span><span class="n">gradient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WeaveGradient</span><span class="p">{},</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">ReserveRegisters</span><span class="w"> </span><span class="n">reserve_regs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReserveRegisters</span><span class="p">{});</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 启动Z字摆。</p>
+</section>
+<section id="id11">
+<h4><span class="section-number">4.2.2.2. </span>启动其他摆型<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>启动其他摆型的方法与Z字摆接口模式相同。</p>
+</div>
+<ul class="simple">
+<li><p>启动平面三角摆： <code class="docutils literal notranslate"><span class="pre">WeavePlaneTriangle</span></code></p></li>
+<li><p>启动立焊三角摆： <code class="docutils literal notranslate"><span class="pre">WeaveVerticalTriangle</span></code></p></li>
+<li><p>启动梯形摆： <code class="docutils literal notranslate"><span class="pre">WeaveTrapezoid</span></code></p></li>
+<li><p>启动月牙摆： <code class="docutils literal notranslate"><span class="pre">WeaveCrescent</span></code></p></li>
+<li><p>启动正弦摆： <code class="docutils literal notranslate"><span class="pre">WeaveSine</span></code></p></li>
+<li><p>启动圆形摆： <code class="docutils literal notranslate"><span class="pre">WeaveCircle</span></code></p></li>
+<li><p>启动8字摆： <code class="docutils literal notranslate"><span class="pre">WeaveFigure8</span></code></p></li>
+</ul>
+</section>
+<section id="id12">
+<h4><span class="section-number">4.2.2.3. </span>结束摆焊<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">errno_t</span><span class="w"> </span><span class="nf">EndWeave</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 结束摆焊。</p>
+</section>
+<section id="id13">
+<h4><span class="section-number">4.2.2.4. </span>获取摆焊参数<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">errno_t</span><span class="w"> </span><span class="nf">GetWeaveParams</span><span class="p">(</span><span class="n">WeaveParams</span><span class="w"> </span><span class="o">&amp;</span><span class="n">params</span><span class="p">,</span>
+<span class="w">                       </span><span class="n">WeaveConfig</span><span class="w"> </span><span class="o">&amp;</span><span class="n">weave_param</span><span class="p">,</span>
+<span class="w">                       </span><span class="n">WeaveGradient</span><span class="w"> </span><span class="o">&amp;</span><span class="n">gradient</span><span class="p">,</span>
+<span class="w">                       </span><span class="n">ReserveRegisters</span><span class="w"> </span><span class="o">&amp;</span><span class="n">reserve_regs</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 获取上一次下发的摆焊参数。</p>
+</section>
+<section id="id14">
+<h4><span class="section-number">4.2.2.5. </span>调节摆焊参数<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">errno_t</span><span class="w"> </span><span class="nf">AdjustWeaveParam</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">left_amplitude</span><span class="p">,</span>
+<span class="w">                         </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">right_amplitude</span><span class="p">,</span>
+<span class="w">                         </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">swing_frequency</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 实时调整当前xx摆的参数。</p>
+</section>
+</section>
+</section>
+</section>
+<section id="python">
+<h1><span class="section-number">5. </span>Python<a class="headerlink" href="#python" title="Link to this heading"></a></h1>
+<section id="id15">
+<h2><span class="section-number">5.1. </span>结构体定义<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<section id="id16">
+<h3><span class="section-number">5.1.1. </span>摆焊参数（ <code class="docutils literal notranslate"><span class="pre">WeaveParams</span></code> ）<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WeaveParams</span><span class="p">:</span>
+      <span class="c1"># 摆焊基本参数，包含所有摆焊类型的参数</span>
+
+<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># 摆动模式（必填）</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">swing_mode</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 1:Z字 2:平面三角 3:梯形 4:月牙 5:立焊三角 11:正弦 12:圆形 13:8字</span>
+
+    <span class="c1"># 摆动参数</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">swing_frequency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># 摆动频率(Hz)，范围：0.1-10.0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">right_amplitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.0</span>  <span class="c1"># 右摆幅(mm)，范围：0-50.0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">left_amplitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.0</span>   <span class="c1"># 左摆幅(mm)，范围：0-50.0</span>
+
+    <span class="c1"># 特殊摆型参数</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># 摆长半径(mm)，月牙、圆形、8字摆使用</span>
+
+    <span class="c1"># 停留时间</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">left_dwell_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>   <span class="c1"># 左停留时间(s)，范围：0-5.0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">right_dwell_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># 右停留时间(s)，范围：0-5.0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">mid_dwell_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>    <span class="c1"># 中间停留时间(s)，平面三角、立焊三角使用</span>
+
+    <span class="c1"># 角度参数</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">elevation_angle</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># 横角(°)，范围：-90~90</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">azimuth_angle</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>    <span class="c1"># 纵角(°)，范围：-90~90</span>
+
+    <span class="c1"># 高级参数</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">center_rise</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># 中心抬升量(mm)，范围：-10.0~10.0</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><code class="docutils literal notranslate"><span class="pre">swing_mode</span></code> ：必须设置为对应的摆型编号</p>
+<p>不同摆型使用不同的参数组合，未使用的参数可忽略或设为0</p>
+</div>
+</section>
+<section id="id17">
+<h3><span class="section-number">5.1.2. </span>摆焊渐变参数（ <code class="docutils literal notranslate"><span class="pre">WeaveGradient</span></code> ）<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WeaveGradient</span><span class="p">:</span>
+      <span class="c1"># 摆动渐变参数，用于摆焊过程中的参数平滑变化</span>
+
+<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># 渐变目标值</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">left_amplitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>      <span class="c1"># 渐变左摆幅(mm)，范围：0-50.0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">right_amplitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>     <span class="c1"># 渐变右摆幅(mm)，范围：0-50.0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">swing_frequency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>     <span class="c1"># 渐变摆动频率(Hz)，范围：0.1-10.0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">left_dwell_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>     <span class="c1"># 渐变左停留时间(s)，范围：0-5.0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">right_dwell_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>    <span class="c1"># 渐变右停留时间(s)，范围：0-5.0</span>
+
+    <span class="c1"># 渐变控制</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">path_length</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># 渐变路径长度(mm)，正弦摆专用</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<ul class="simple">
+<li><p>圆形摆和8字摆不支持焊接渐变参数。</p></li>
+<li><p>只有正弦摆需要设置渐变路径长度( <code class="docutils literal notranslate"><span class="pre">path_length</span></code> )参数。</p></li>
+<li><p>渐变过程是线性的，从当前值逐步变化到目标值。</p></li>
+</ul>
+</div>
+</section>
+<section id="id18">
+<h3><span class="section-number">5.1.3. </span>摆焊配置参数（ <code class="docutils literal notranslate"><span class="pre">WeaveConfig</span></code> ）<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WeaveConfig</span><span class="p">:</span>
+      <span class="c1"># 摆焊轨迹配置参数</span>
+
+<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># 停留模式</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">dwell_delay_type</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># 连接模式</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">blend_weave_end</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="c1"># 平面选择</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">frame_type</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># 摆动方向</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p><strong>参数说明：</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>停留模式（ <code class="docutils literal notranslate"><span class="pre">dwell_delay_type</span></code> ）：</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></code> ：焊枪到达摆幅极限位置后停止运动，停留指定时间后再反向运动。Z字摆，三角摆，台形摆，月牙摆为此种停留方式。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">=</span> <span class="pre">1</span></code> ：焊枪到达摆幅极限位置后沿焊接方向继续运动，指定停留时间后再反向运动。正弦摆为此种停留方式。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>连接模式（ <code class="docutils literal notranslate"><span class="pre">blend_weave_end</span></code> ）：</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">=</span> <span class="pre">1</span></code> ：启用平滑过渡，即摆焊轨迹不强制经过中间点。目前仅支持这一种模式。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>平面选择（ <code class="docutils literal notranslate"><span class="pre">frame_type</span></code> ）：</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></code> ：摆焊平面跟随焊枪末端，当前版本仅支持跟随焊枪。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">=</span> <span class="pre">1</span></code> ：摆焊平面跟随由起点和终点位置计算得出的工件平面，焊接过程中，机器人姿态会随之调整。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>摆动方向（ <code class="docutils literal notranslate"><span class="pre">direction</span></code> ）：</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></code> ：起摆方向为左（+Y）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">=</span> <span class="pre">1</span></code> ：起摆方向为右（-Y）。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="id19">
+<h3><span class="section-number">5.1.4. </span>预留寄存器（ <code class="docutils literal notranslate"><span class="pre">ReserveRegisters</span></code> ）<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ReserveRegisters</span><span class="p">:</span>
+<span class="c1"># 预留寄存器接口，目前暂无实际功能</span>
+
+<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">float_regs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># 浮点寄存器列表</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">int_regs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>      <span class="c1"># 整型寄存器列表</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">str_regs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>      <span class="c1"># 字符串寄存器列表</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id20">
+<h2><span class="section-number">5.2. </span>接口定义<a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
+<section id="id21">
+<h3><span class="section-number">5.2.1. </span>单例与初始化<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">GetInstance()</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">GetInstance</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="s2">&quot;WeldingSDK&quot;</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 获取 WeldingSDK 的单例对象。</p>
+<p><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 构造函数，创建焊接工艺包对象。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Int()</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 初始化接口，用于与焊接工艺包后端建立长连接通讯。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Destroy()</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 销毁实例对象，建议在程序停止时主动销毁。</p>
+</section>
+<section id="id22">
+<h3><span class="section-number">5.2.2. </span>启动摆焊<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<section id="id23">
+<h4><span class="section-number">5.2.2.1. </span>启动Z字摆（ <code class="docutils literal notranslate"><span class="pre">WeaveZsine</span></code> ）<a class="headerlink" href="#id23" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">WeaveZsine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+           <span class="n">params</span><span class="p">:</span> <span class="n">WeaveParams</span><span class="p">,</span>
+           <span class="n">weave_param</span><span class="p">:</span> <span class="n">WeaveConfig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+           <span class="n">gradient</span><span class="p">:</span> <span class="n">WeaveGradient</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+           <span class="n">reserve_regs</span><span class="p">:</span> <span class="n">ReserveRegisters</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 开启Z字摆。</p>
+</section>
+<section id="id24">
+<h4><span class="section-number">5.2.2.2. </span>启动其他摆型<a class="headerlink" href="#id24" title="Link to this heading"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>启动其他摆型的方法与Z字摆接口模式相同。</p>
+</div>
+<ul class="simple">
+<li><p>启动平面三角摆： <code class="docutils literal notranslate"><span class="pre">WeavePlaneTriangle()</span></code></p></li>
+<li><p>启动立焊三角摆： <code class="docutils literal notranslate"><span class="pre">WeaveVerticalTriangle()</span></code></p></li>
+<li><p>启动梯形摆： <code class="docutils literal notranslate"><span class="pre">WeaveTrapezoid()</span></code></p></li>
+<li><p>启动月牙摆： <code class="docutils literal notranslate"><span class="pre">WeaveCrescent()</span></code></p></li>
+<li><p>启动正弦摆： <code class="docutils literal notranslate"><span class="pre">WeaveSine()</span></code></p></li>
+<li><p>启动圆形摆： <code class="docutils literal notranslate"><span class="pre">WeaveCircle()</span></code></p></li>
+<li><p>启动8字摆： <code class="docutils literal notranslate"><span class="pre">WeaveFigure8()</span></code></p></li>
+</ul>
+</section>
+<section id="id25">
+<h4><span class="section-number">5.2.2.3. </span>结束摆焊<a class="headerlink" href="#id25" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">EndWeave</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 停止摆焊。</p>
+</section>
+<section id="id26">
+<h4><span class="section-number">5.2.2.4. </span>摆焊状态确认<a class="headerlink" href="#id26" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">IsWeaving</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span> <span class="o">...</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>功能：</strong> 检查当前是否正在摆焊。</p></li>
+<li><p><strong>返回值：</strong> <code class="docutils literal notranslate"><span class="pre">True</span></code> 表示正在摆焊， <code class="docutils literal notranslate"><span class="pre">False</span></code> 表示未摆焊。</p></li>
+</ul>
+</section>
+<section id="id27">
+<h4><span class="section-number">5.2.2.5. </span>获取摆焊参数<a class="headerlink" href="#id27" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">GetWeaveParams</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">WeaveParams</span><span class="p">,</span> <span class="n">WeaveConfig</span><span class="p">,</span> <span class="n">WeaveGradient</span><span class="p">]:</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 获取上一次下发的摆焊参数。</p>
+</section>
+<section id="id28">
+<h4><span class="section-number">5.2.2.6. </span>调节摆焊参数<a class="headerlink" href="#id28" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">AdjustWeaveParam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">left_amplitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                 <span class="n">right_amplitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                 <span class="n">swing_frequency</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><strong>功能：</strong> 实时调整当前xx摆的参数。</p>
+</section>
+</section>
+</section>
+</section>
+<section id="id29">
+<h1><span class="section-number">6. </span>错误代码<a class="headerlink" href="#id29" title="Link to this heading"></a></h1>
+<section id="id30">
+<h2><span class="section-number">6.1. </span>c++<a class="headerlink" href="#id30" title="Link to this heading"></a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">define</span><span class="w"> </span><span class="n">ERR_SUCC</span><span class="w"> </span><span class="mi">0</span><span class="w">                        </span><span class="c1">// 成功</span>
+<span class="n">define</span><span class="w"> </span><span class="n">ERR_INIT_FAIL</span><span class="w"> </span><span class="mi">-1</span><span class="w">                  </span><span class="c1">// 初始化失败</span>
+<span class="n">define</span><span class="w"> </span><span class="n">ERR_NOT_INIT</span><span class="w"> </span><span class="mi">-2</span><span class="w">                   </span><span class="c1">// 未初始化</span>
+<span class="n">define</span><span class="w"> </span><span class="n">ERR_NO_RESPONSE</span><span class="w"> </span><span class="mi">-3</span><span class="w">                </span><span class="c1">// 未响应</span>
+<span class="n">define</span><span class="w"> </span><span class="n">ERR_SWING_NOT_RUNNING</span><span class="w"> </span><span class="mi">-32007</span><span class="w">      </span><span class="c1">// 摆动未开启</span>
+<span class="n">define</span><span class="w"> </span><span class="n">ERR_SUPERPOS_NOT_ENABLE</span><span class="w"> </span><span class="mi">-32008</span><span class="w">    </span><span class="c1">// 位置叠加功能未启动</span>
+<span class="n">define</span><span class="w"> </span><span class="n">ERR_SWING_ALREADY_RUNNNING</span><span class="w"> </span><span class="mi">-32009</span><span class="w"> </span><span class="c1">// 重复开启摆动</span>
+</pre></div>
+</div>
+</section>
+<section id="id31">
+<h2><span class="section-number">6.2. </span>Python<a class="headerlink" href="#id31" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ERR_SUCC</span> <span class="o">=</span> <span class="mi">0</span>                        <span class="c1"># 成功</span>
+<span class="n">ERR_INIT_FAIL</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>                  <span class="c1"># 初始化失败</span>
+<span class="n">ERR_NOT_INIT</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>                   <span class="c1"># 未初始化</span>
+<span class="n">ERR_NO_RESPONSE</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>                <span class="c1"># 未响应</span>
+<span class="n">ERR_SWING_NOT_RUNNING</span> <span class="o">=</span> <span class="o">-</span><span class="mi">32007</span>      <span class="c1"># 摆动未开启</span>
+<span class="n">ERR_SUPERPOS_NOT_ENABLE</span> <span class="o">=</span> <span class="o">-</span><span class="mi">32008</span>    <span class="c1"># 位置叠加功能未启动</span>
+<span class="n">ERR_SWING_ALREADY_RUNNING</span> <span class="o">=</span> <span class="o">-</span><span class="mi">32009</span>  <span class="c1"># 重复开启摆动</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id32">
+<h1><span class="section-number">7. </span>使用示例<a class="headerlink" href="#id32" title="Link to this heading"></a></h1>
+<section id="id33">
+<h2><span class="section-number">7.1. </span>基础摆焊流程（c++）<a class="headerlink" href="#id33" title="Link to this heading"></a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;JAKASDK/JAKAZuRobot.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;WeldingSDK/WeldingSDK.h&quot;</span>
+
+<span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">ROBOT_IP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;192.168.182.202&quot;</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">M_PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.1415926535</span><span class="p">;</span>
+
+<span class="c1">// 辅助函数</span>
+<span class="n">JointValue</span><span class="w"> </span><span class="nf">GetRadiansJoints</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">joints</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">JointValue</span><span class="w"> </span><span class="n">joint_radians</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">joint_radians</span><span class="p">.</span><span class="n">jVal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">joints</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M_PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">180.0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">joint_radians</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">CartesianPose</span><span class="w"> </span><span class="nf">GetRadiansPose</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">pose</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">CartesianPose</span><span class="w"> </span><span class="n">pose_radians</span><span class="p">;</span>
+<span class="w">    </span><span class="n">pose_radians</span><span class="p">.</span><span class="n">tran</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pose</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">    </span><span class="n">pose_radians</span><span class="p">.</span><span class="n">tran</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pose</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="n">pose_radians</span><span class="p">.</span><span class="n">tran</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pose</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="w">    </span><span class="n">pose_radians</span><span class="p">.</span><span class="n">rpy</span><span class="p">.</span><span class="n">rx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pose</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M_PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">180.0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">pose_radians</span><span class="p">.</span><span class="n">rpy</span><span class="p">.</span><span class="n">ry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pose</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M_PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">180.0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">pose_radians</span><span class="p">.</span><span class="n">rpy</span><span class="p">.</span><span class="n">rz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pose</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M_PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">180.0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">pose_radians</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">JAKAZuRobot</span><span class="w"> </span><span class="n">robot</span><span class="p">;</span><span class="w">                                              </span><span class="c1">// 创建机器人对象</span>
+<span class="w">    </span><span class="n">robot</span><span class="p">.</span><span class="n">login_in</span><span class="p">(</span><span class="n">RobotIP</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;jaka_sdk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Jaka@1234&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 登录</span>
+
+<span class="w">    </span><span class="n">WeldingSDK</span><span class="w"> </span><span class="n">welding</span><span class="p">;</span><span class="w">    </span><span class="c1">// 创建焊接工艺包对象</span>
+<span class="w">    </span><span class="n">welding</span><span class="p">.</span><span class="n">Init</span><span class="p">(</span><span class="n">RobotIP</span><span class="p">);</span><span class="w"> </span><span class="c1">// 初始化</span>
+
+<span class="w">    </span><span class="c1">// 机器人运动到开始位置</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">init_J</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="mi">-90</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">JointValue</span><span class="w"> </span><span class="n">initJoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetRadiansJoints</span><span class="p">(</span><span class="n">init_J</span><span class="p">);</span>
+<span class="w">    </span><span class="n">robot</span><span class="p">.</span><span class="n">joint_move</span><span class="p">(</span><span class="o">&amp;</span><span class="n">initJoints</span><span class="p">,</span><span class="w"> </span><span class="n">MoveMode</span><span class="o">::</span><span class="n">ABS</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">WeaveParams</span><span class="w"> </span><span class="n">params</span><span class="p">;</span><span class="w">            </span><span class="c1">// 开启正弦摆</span>
+<span class="w">    </span><span class="n">params</span><span class="p">.</span><span class="n">letf_amplitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.0</span><span class="p">;</span><span class="w">   </span><span class="c1">// 设置左摆幅 3.0 mm</span>
+<span class="w">    </span><span class="n">params</span><span class="p">.</span><span class="n">right_amplitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.0</span><span class="p">;</span><span class="w">  </span><span class="c1">// 设置右摆幅 3.0 mm</span>
+<span class="w">    </span><span class="n">params</span><span class="p">.</span><span class="n">swing_frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span><span class="w">  </span><span class="c1">// 摆频 1.0 Hz</span>
+<span class="w">    </span><span class="n">params</span><span class="p">.</span><span class="n">left_dwell_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">;</span><span class="w">  </span><span class="c1">// 左摆停顿时间 0.5 s</span>
+<span class="w">    </span><span class="n">params</span><span class="p">.</span><span class="n">right_dwell_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">;</span><span class="w"> </span><span class="c1">// 右摆停顿时间 0.5 s</span>
+<span class="w">    </span><span class="n">welding</span><span class="p">.</span><span class="n">WeaveSine</span><span class="p">(</span><span class="n">params</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 下发运动轨迹</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">pos_1</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">CartesianPose</span><span class="w"> </span><span class="n">pose_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetRadiansPose</span><span class="p">(</span><span class="n">pos_1</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 相对直线运动，向 +X 方向移动 100 mm. 为了与后续相对直线运动可以圆弧过渡，is_block 需要设置为 False，tol 参数必须大于0</span>
+<span class="w">    </span><span class="n">robot</span><span class="p">.</span><span class="n">linear_move</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pose_1</span><span class="p">,</span><span class="w"> </span><span class="n">MoveMode</span><span class="o">::</span><span class="n">INCR</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">pos_2</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">CartesianPose</span><span class="w"> </span><span class="n">pose_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetRadiansPose</span><span class="p">(</span><span class="n">pos_2</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 相对直线运动，向 +Y 方向移动 100 mm</span>
+<span class="w">    </span><span class="n">robot</span><span class="p">.</span><span class="n">linear_move</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pose_2</span><span class="p">,</span><span class="w"> </span><span class="n">MoveMode</span><span class="o">::</span><span class="n">INCR</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">welding</span><span class="p">.</span><span class="n">EndWeave</span><span class="p">();</span><span class="w"> </span><span class="c1">// 结束正弦摆</span>
+
+<span class="w">    </span><span class="n">welding</span><span class="p">.</span><span class="n">Destroy</span><span class="p">();</span>
+<span class="w">    </span><span class="n">robot</span><span class="p">.</span><span class="n">login_out</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id34">
+<h2><span class="section-number">7.2. </span>基础摆焊流程（python）<a class="headerlink" href="#id34" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jakaWeldingSDK</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jakaZuRobot</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">basic_weave_example</span><span class="p">():</span>
+<span class="sd">&quot;&quot;&quot;基础摆焊示例：Z字摆&quot;&quot;&quot;</span>
+    <span class="n">robot_ip</span> <span class="o">=</span> <span class="s2">&quot;192.168.182.202&quot;</span>
+
+    <span class="c1"># 1. 初始化机器人</span>
+    <span class="n">robot</span> <span class="o">=</span> <span class="n">jakaZuRobot</span><span class="o">.</span><span class="n">RC</span><span class="p">(</span><span class="n">robot_ip</span><span class="p">)</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;jaka_sdk&quot;</span><span class="p">,</span> <span class="s2">&quot;Jaka@1234&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 2. 初始化焊接SDK</span>
+    <span class="n">welding</span> <span class="o">=</span> <span class="n">jakaWeldingSDK</span><span class="o">.</span><span class="n">WeldingSDK</span><span class="p">()</span>
+    <span class="n">welding</span><span class="o">.</span><span class="n">Init</span><span class="p">(</span><span class="n">robot_ip</span><span class="p">)</span>
+
+    <span class="c1"># 3. 机器人运动到起始位置</span>
+    <span class="n">init_joints</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">joint_move</span><span class="p">(</span>
+        <span class="n">joint_pos</span><span class="o">=</span><span class="n">init_joints</span><span class="p">,</span>
+        <span class="n">move_mode</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">is_block</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">speed</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 4. 配置并启动Z字摆</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">jakaWeldingSDK</span><span class="o">.</span><span class="n">WeaveParams</span><span class="p">()</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">swing_mode</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Z字摆</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">left_amplitude</span> <span class="o">=</span> <span class="mf">5.0</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">right_amplitude</span> <span class="o">=</span> <span class="mf">5.0</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">swing_frequency</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">left_dwell_time</span> <span class="o">=</span> <span class="mf">0.3</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">right_dwell_time</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">welding</span><span class="o">.</span><span class="n">WeaveZsine</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;启动Z字摆失败，错误码: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># 5. 执行焊接轨迹</span>
+    <span class="c1"># 第一条直线，带圆弧过渡</span>
+    <span class="n">end_pos_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># X方向移动100mm</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">linear_move_extend</span><span class="p">(</span>
+        <span class="n">end_pos</span><span class="o">=</span><span class="n">end_pos_1</span><span class="p">,</span>
+        <span class="n">move_mode</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="c1"># 相对运动</span>
+        <span class="n">is_block</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># 非阻塞，允许后续指令立即执行</span>
+        <span class="n">speed</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span>
+        <span class="n">acc</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+        <span class="n">tol</span><span class="o">=</span><span class="mf">5.0</span>  <span class="c1"># 过渡半径5mm</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 第二条直线，与第一条平滑连接</span>
+    <span class="n">end_pos_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Y方向移动100mm</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">linear_move_extend</span><span class="p">(</span>
+        <span class="n">end_pos</span><span class="o">=</span><span class="n">end_pos_2</span><span class="p">,</span>
+        <span class="n">move_mode</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">is_block</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># 阻塞，等待运动完成</span>
+        <span class="n">speed</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span>
+        <span class="n">acc</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+        <span class="n">tol</span><span class="o">=</span><span class="mi">0</span>  <span class="c1"># 无过渡</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 6. 停止摆焊</span>
+    <span class="n">welding</span><span class="o">.</span><span class="n">EndWeave</span><span class="p">()</span>
+
+    <span class="c1"># 7. 清理资源</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
+    <span class="n">welding</span><span class="o">.</span><span class="n">Destroy</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id35">
+<h1><span class="section-number">8. </span>更新日志<a class="headerlink" href="#id35" title="Link to this heading"></a></h1>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>版本</p></th>
+<th class="head"><p>时间</p></th>
+<th class="head"><p>内容</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V01</p></td>
+<td><p>2025.12.30</p></td>
+<td><p>初版，增加摆焊接口</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welding Kit SDK API Manual documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, JAKA Robotics。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
