@@ -1,6 +1,0 @@
-# 创建简化的 requirements.txt
-sphinx>=5.0
-sphinx-rtd-theme
-recommonmark
-sphinxemoji
-sphinx-markdown-tables
