@@ -72,6 +72,3 @@ html_search_options = {
     'type': 'jieba',
     'lang': 'zh_CN'
 }
-
-# 设置搜索引擎使用中文编码
-html_search_scorer = 'scorer.js'
