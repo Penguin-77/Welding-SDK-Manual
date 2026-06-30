@@ -20,16 +20,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.imgconverter',
     'sphinx.ext.imgmath',
-    'sphinx_comments',
 ]
-
-comments_config = {
-    "utterances": {
-        "repo": "Welding-SDK-Manual", # 例如 "jaka/docs"
-        "issue-term": "pathname",
-        "theme": "github-light" # 可选：github-dark, github-dark-orange 等
-    }
-}
 
 source_suffix = {
  '.rst': 'restructuredtext',
