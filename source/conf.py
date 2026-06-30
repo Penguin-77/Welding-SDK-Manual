@@ -87,8 +87,7 @@ LaTeXBuilder.supported_image_types = ['application/pdf', 'image/png', 'image/jpe
 latex_engine = 'xelatex'
 
 latex_documents = [
-    ('index', '焊接工艺包SDK手册.tex', '焊接工艺包SDK手册',
-     author, 'manual'),
+    ('index', '焊接工艺包SDK手册.tex', '焊接工艺包SDK手册', 'JAKA', 'manual'),
 ]
 
 latex_table_style = ['longtable', 'booktabs']

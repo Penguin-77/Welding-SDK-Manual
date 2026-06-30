@@ -11,7 +11,7 @@ sphinx:
   fail_on_warning: false
 
 formats:
-  - pdf
+  # - pdf
   - htmlzip
 
 python:
