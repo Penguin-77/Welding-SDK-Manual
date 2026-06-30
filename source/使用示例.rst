@@ -1,0 +1,141 @@
+使用示例
+##########
+
+基础摆焊流程（c++）
+*******************
+
+.. code:: cpp
+
+    #include "JAKASDK/JAKAZuRobot.h"
+    #include "WeldingSDK/WeldingSDK.h"
+
+    const std::string ROBOT_IP = "192.168.182.202";
+    const double M_PI = 3.1415926535;
+
+    // 辅助函数
+    JointValue GetRadiansJoints(const double joints[6])
+    {
+        JointValue joint_radians;
+        for (int i = 0; i < 6; i++)
+        {
+            joint_radians.jVal[i] = joints[i] * M_PI / 180.0;
+        }
+        return joint_radians;
+    }
+
+    CartesianPose GetRadiansPose(const double pose[6])
+    {
+        CartesianPose pose_radians;
+        pose_radians.tran.x = pose[0];
+        pose_radians.tran.y = pose[1];
+        pose_radians.tran.z = pose[2];
+        pose_radians.rpy.rx = pose[3] * M_PI / 180.0;
+        pose_radians.rpy.ry = pose[4] * M_PI / 180.0;
+        pose_radians.rpy.rz = pose[5] * M_PI / 180.0;
+        return pose_radians;
+    }
+    int main()
+    {
+        JAKAZuRobot robot;                                              // 创建机器人对象
+        robot.login_in(RobotIP.c_str(), true, "jaka_sdk", "Jaka@1234"); // 登录
+
+        WeldingSDK welding;    // 创建焊接工艺包对象
+        welding.Init(RobotIP); // 初始化
+
+        // 机器人运动到开始位置
+        double init_J[6] = {0, 90, -90, 90, 90, 0};
+        JointValue initJoints = GetRadiansJoints(init_J);
+        robot.joint_move(&initJoints, MoveMode::ABS, true, 3);
+
+        WeaveParams params;            // 开启正弦摆
+        params.letf_amplitude = 3.0;   // 设置左摆幅 3.0 mm
+        params.right_amplitude = 3.0;  // 设置右摆幅 3.0 mm
+        params.swing_frequency = 1.0;  // 摆频 1.0 Hz
+        params.left_dwell_time = 0.5;  // 左摆停顿时间 0.5 s
+        params.right_dwell_time = 0.5; // 右摆停顿时间 0.5 s
+        welding.WeaveSine(params);
+
+        // 下发运动轨迹
+        double pos_1[6] = {100, 0, 0, 0, 0, 0};
+        CartesianPose pose_1 = GetRadiansPose(pos_1);
+        // 相对直线运动，向 +X 方向移动 100 mm. 为了与后续相对直线运动可以圆弧过渡，is_block 需要设置为 False，tol 参数必须大于0
+        robot.linear_move(&pose_1, MoveMode::INCR, false, 13, 500, 5.0);
+
+        double pos_2[6] = {50, 100, 0, 0, 0, 0};
+        CartesianPose pose_2 = GetRadiansPose(pos_2);
+        // 相对直线运动，向 +Y 方向移动 100 mm
+        robot.linear_move(&pose_2, MoveMode::INCR, true, 13, 500, 5.0);
+
+        welding.EndWeave(); // 结束正弦摆
+
+        welding.Destroy();
+        robot.login_out();
+        return 0;
+    }
+
+
+执行正弦摆焊（python）
+**********************
+
+.. code:: python
+
+    import pyweldingsdk
+    import jakaZuRobot
+
+    robot = jakaZuRobot.RC("192.168.0.35")
+    robot.login(1, "jaka_sdk", "Jaka@1234")
+
+    sdk = pyweldingsdk.WeldingSDK()
+    sdk.Init("192.168.0.35")
+
+    # 配置正弦摆参数
+    params = pyweldingsdk.WeaveParams()
+    params.left_amplitude = 3.0        # 左摆幅 3mm
+    params.right_amplitude = 3.0      # 右摆幅 3mm
+    params.swing_frequency = 1.0      # 摆频 1Hz
+    params.left_dwell_time = 0.5      # 左侧停留 0.5s
+    params.right_dwell_time = 0.5     # 右侧停留 0.5s
+
+    # 开启摆焊，机器人执行直线运动
+    sdk.WeaveSine(params)
+    robot.linear_move_extend([0, 100, 0, 0, 0, 0], 1, True, 13, 500, 0)
+
+    # 停止摆焊
+    sdk.EndWeave()
+
+    robot.logout()
+    sdk.Destroy()
+
+焊机信号操作（python）
+**********************
+
+.. code:: python
+
+    import time
+    import pyweldingsdk
+
+    sdk = pyweldingsdk.WeldingSDK()
+    sdk.Init("192.168.0.35")
+
+    # 切换焊机
+    sdk.SwitchWelder(pyweldingsdk.WelderType_ATR.NBC_350L, "192.168.1.1")
+
+    # 配置焊接参数
+    sdk.SetWelderCorrectVoltage(0)
+    sdk.SetWelderWireFeedRate(200)
+    sdk.SetWelderWeldingEnable(1)  # 开启焊接使能
+    sdk.SetWelderSimulate(0)       # 关闭模拟
+
+    # 起弧
+    sdk.SetWelderStart(1)
+    time.sleep(3)
+
+    # 收弧
+    sdk.SetWelderStart(0)
+
+    # 读取焊机状态
+    ret, signal = sdk.GetWelderSignal()
+    print(f"实际电压: {signal.Output.actual_voltage}")
+    print(f"实际电流: {signal.Output.actual_current}")
+
+    sdk.Destroy()

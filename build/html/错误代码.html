@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. 错误代码 &mdash; 焊接工艺包SDK手册 V02 文档</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=19655cf5" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=19655cf5" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=cec880c9"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "Welding-SDK-Manual");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+      <script src="_static/translations.js?v=540d3cec"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="6. 使用示例" href="%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B.html" />
+    <link rel="prev" title="4. Python" href="Python.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            焊接工艺包SDK手册
+              <img src="_static/Logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.html">1. 快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%AF%E8%AF%AD.html">2. 术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C%2B%2B.html">3. C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">4. Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. 错误代码</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#c">5.1. c++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python">5.2. Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B.html">6. 使用示例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%8E%A5%E5%8F%A3%E6%9B%B4%E6%96%B0%E8%AF%B4%E6%98%8E.html">7. 接口更新说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">焊接工艺包SDK手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>错误代码</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">5. </span>错误代码<a class="headerlink" href="#id1" title="链接到此标题。"></a></h1>
+<section id="c">
+<h2><span class="section-number">5.1. </span>c++<a class="headerlink" href="#c" title="链接到此标题。"></a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">define</span><span class="w"> </span><span class="n">ERR_SUCC</span><span class="w"> </span><span class="mi">0</span><span class="w">                        </span><span class="c1">// 成功</span>
+<span class="n">define</span><span class="w"> </span><span class="n">ERR_INIT_FAIL</span><span class="w"> </span><span class="mi">-1</span><span class="w">                  </span><span class="c1">// 初始化失败</span>
+<span class="n">define</span><span class="w"> </span><span class="n">ERR_NOT_INIT</span><span class="w"> </span><span class="mi">-2</span><span class="w">                   </span><span class="c1">// 未初始化</span>
+<span class="n">define</span><span class="w"> </span><span class="n">ERR_NO_RESPONSE</span><span class="w"> </span><span class="mi">-3</span><span class="w">                </span><span class="c1">// 未响应</span>
+<span class="n">define</span><span class="w"> </span><span class="n">ERR_SWING_NOT_RUNNING</span><span class="w"> </span><span class="mi">-32007</span><span class="w">      </span><span class="c1">// 摆动未开启</span>
+<span class="n">define</span><span class="w"> </span><span class="n">ERR_SUPERPOS_NOT_ENABLE</span><span class="w"> </span><span class="mi">-32008</span><span class="w">    </span><span class="c1">// 位置叠加功能未启动</span>
+<span class="n">define</span><span class="w"> </span><span class="n">ERR_SWING_ALREADY_RUNNNING</span><span class="w"> </span><span class="mi">-32009</span><span class="w"> </span><span class="c1">// 重复开启摆动</span>
+</pre></div>
+</div>
+</section>
+<section id="python">
+<h2><span class="section-number">5.2. </span>Python<a class="headerlink" href="#python" title="链接到此标题。"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ERR_SUCC</span> <span class="o">=</span> <span class="mi">0</span>                        <span class="c1"># 成功</span>
+<span class="n">ERR_INIT_FAIL</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>                  <span class="c1"># 初始化失败</span>
+<span class="n">ERR_NOT_INIT</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>                   <span class="c1"># 未初始化</span>
+<span class="n">ERR_NO_RESPONSE</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>                <span class="c1"># 未响应</span>
+<span class="n">ERR_SWING_NOT_RUNNING</span> <span class="o">=</span> <span class="o">-</span><span class="mi">32007</span>      <span class="c1"># 摆动未开启</span>
+<span class="n">ERR_SUPERPOS_NOT_ENABLE</span> <span class="o">=</span> <span class="o">-</span><span class="mi">32008</span>    <span class="c1"># 位置叠加功能未启动</span>
+<span class="n">ERR_SWING_ALREADY_RUNNING</span> <span class="o">=</span> <span class="o">-</span><span class="mi">32009</span>  <span class="c1"># 重复开启摆动</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="Python.html" class="btn btn-neutral float-left" title="4. Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B.html" class="btn btn-neutral float-right" title="6. 使用示例" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, JAKA Robotics。</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

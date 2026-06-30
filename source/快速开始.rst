@@ -1,0 +1,60 @@
+快速开始
+#########
+
+环境要求
+**********
+
+- **操作系统：** Windows 10/11, Linux (Ubuntu 18.04+)
+- **编译器：** 支持 C++11 标准的编译器（MSVC 2017+）；Python 3.10
+- **网络环境：** 机器人控制器与开发机在同一局域网
+- **编译语言：** 支持Python，C++
+
+软件版本
+**********
+
+JAKA焊接SDK适用于以下版本的软件：
+
+- SDK：V2.3.0及以上
+- 控制器：v3.2.15及以上
+- App：v2.1.7及以上
+
+开始前准备
+************
+
+在开始调用焊接专用接口前，需确保已完成以下事项：
+
+- 已下载并安装合适版本的JAKA SDK安装包。JAKA SDK软件包可通过 `JAKA官网 <https://www.jaka.com/zh/download>`_ 获取。
+- 已完成环境编译与配置。具体操作见 `JAKA SDK手册的快速开始 <https://www.jaka.com/docs/guide/SDK/%E8%8A%82%E5%8D%A1%20SDK%20%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%20-%20CN.html>`_ 。
+- 导入模块。
+  
+    - C++ 导入方式
+    
+     .. code:: cpp
+
+         #include "JAKASDK/JAKAZuRobot.h"
+         #include "WeldingSDK/WeldingSDK.h"
+
+    - Python 导入方式
+  
+      .. code:: python
+
+         import jakaWeldingSDK
+         import jakaZuRobot  # 机器人控制模块（可选） 
+
+手册标识说明
+**************
+
+本手册使用如下标识。
+
+.. list-table:: 安全标识说明
+   :widths: 20 80 
+   :header-rows: 1
+   
+   * - **标识**
+     - **说明**
+
+   * - **注意** 
+     - 这个标志表示重要事实和状况。
+
+   * - **备注**
+     - 此标志用于说明附加信息。

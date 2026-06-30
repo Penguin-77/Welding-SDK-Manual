@@ -1,0 +1,24 @@
+接口更新说明
+##############
+
+.. list-table::
+   :widths: 60 40         
+   :header-rows: 1
+
+   * - **变化接口**
+     - **适配焊接包版本**
+   * - /
+     - v3_1_6及以上
+
+   * - IsWeaving
+          
+       SwitchWelder
+
+       SetWelderStart
+
+       SetWelderGas
+
+       SetWelderWireFeed
+       Superpos
+
+     - v3_2_2及以上

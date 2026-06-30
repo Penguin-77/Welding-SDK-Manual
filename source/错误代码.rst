@@ -1,0 +1,28 @@
+错误代码
+#########
+
+c++
+*****
+
+.. code:: cpp
+
+    define ERR_SUCC 0                        // 成功
+    define ERR_INIT_FAIL -1                  // 初始化失败
+    define ERR_NOT_INIT -2                   // 未初始化
+    define ERR_NO_RESPONSE -3                // 未响应
+    define ERR_SWING_NOT_RUNNING -32007      // 摆动未开启
+    define ERR_SUPERPOS_NOT_ENABLE -32008    // 位置叠加功能未启动
+    define ERR_SWING_ALREADY_RUNNNING -32009 // 重复开启摆动
+
+Python
+********
+
+.. code:: python
+
+    ERR_SUCC = 0                        # 成功
+    ERR_INIT_FAIL = -1                  # 初始化失败
+    ERR_NOT_INIT = -2                   # 未初始化
+    ERR_NO_RESPONSE = -3                # 未响应
+    ERR_SWING_NOT_RUNNING = -32007      # 摆动未开启
+    ERR_SUPERPOS_NOT_ENABLE = -32008    # 位置叠加功能未启动
+    ERR_SWING_ALREADY_RUNNING = -32009  # 重复开启摆动
