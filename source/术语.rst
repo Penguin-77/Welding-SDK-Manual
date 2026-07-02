@@ -6,58 +6,58 @@
   * Z字摆：焊枪末端一边走Z字形轨迹一边前进的焊接模式。前进轨迹可以为直线或圆弧。
 
     .. figure:: ./images/1.*
-        :align: left
-        :figwidth: 100%
+      :align: center
+      :width: 15cm
 
-        Z 字摆
+      Z 字摆
 
     * 三角摆：焊枪末端一边走三角形轨迹一边前进的焊接模式。前进轨迹可以为直线或圆弧。
     
     .. figure:: ./images/2.*
-        :align: left
-        :figwidth: 100%
+      :align: center
+      :width: 15cm
 
-        三角摆
+      三角摆
 
     * 台形摆：焊枪末端一边走倒放的梯形轨迹一边前进的焊接模式。前进轨迹可以为直线或圆弧。
     
     .. figure:: ./images/3.*
-        :align: left
-        :figwidth: 100%
+      :align: center
+      :width: 15cm
 
-        台形摆
+      台形摆
 
     * 月牙摆：焊枪末端一边走圆弧形轨迹一边前进的焊接模式。前进轨迹可以为直线或圆弧。
     
     .. figure:: ./images/4.*
-        :align: left
-        :figwidth: 100%
+      :align: center
+      :width: 15cm
 
-        月牙摆
+      月牙摆
 
     * 正弦摆：焊枪末端一边走S形轨迹一边前进的焊接模式。前进轨迹可以为直线或圆弧。
         
     .. figure:: ./images/5.*
-        :align: left
-        :figwidth: 100%
+      :align: center
+      :width: 15cm
 
-        正弦摆
+      正弦摆
 
     * 圆形摆：焊枪末端一边走圆形或椭圆形轨迹一边前进的焊接模式。前进轨迹可以为直线或圆弧。
         
     .. figure:: ./images/6.*
-        :align: left
-        :figwidth: 100%
+      :align: center
+      :width: 15cm
 
-        圆形摆
+      圆形摆
 
     * 8字摆：焊枪末端一边走8字形轨迹一边前进的焊接模式。前进轨迹可以为直线或圆弧。
     
     .. figure:: ./images/7.*
-        :align: left
-        :figwidth: 100%
+      :align: center
+      :width: 15cm
 
-        8字摆
+      8字摆
 
 * **摆动频率** ：焊枪在单位时间内完成的完整摆动周期数
 * **左、右摆幅** ：焊枪从中线位置向左（+Y）或向右（-Y）摆动的最大距离
@@ -66,8 +66,8 @@
 * **纵角** ：指焊枪在焊接方向平面内的倾斜角度，即焊枪与焊缝垂直线的夹角。下图以正弦摆为例，其他摆动模式同理。 
 
     .. figure:: ./images/8.*
-       :align: left
-       :figwidth: 60%
+      :align: center
+      :width: 7cm
 
     .. note::
 
@@ -79,8 +79,8 @@
 * **横角** ：指焊枪在垂直于焊接方向平面内的倾斜角度。下图以正弦摆为例，其他摆动模式同理。 
 
     .. figure:: ./images/9.*
-       :align: left
-       :figwidth: 100%
+      :align: center
+      :width: 7cm
 
     .. note::
 

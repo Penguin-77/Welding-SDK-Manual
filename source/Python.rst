@@ -651,7 +651,7 @@ JOB 任务参数
    * - ``IsSuperposEnable()``
      - 查询叠加状态，返回 ``(errno, is_enable)``
    * - ``SetSuperposOffset(offset, coord_type)``
-     - 下发偏移量 ``[x, y, z]``（必须为 3 个浮点数），``coord_type`` ：0=当前用户坐标系，1=运动坐标系
+     - 下发偏移量 ``[x, y, z]`` （必须为 3 个浮点数）， ``coord_type`` ：0=当前用户坐标系，1=运动坐标系
 
 .. attention::
 
@@ -706,7 +706,7 @@ JOB 任务参数
    * - ``GenerateEndWeaveScript()``
      - 生成结束摆焊脚本
 
-**返回值：** 元组 ``(errno, script)`` ，``errno`` 为 ``ERR_SUCC`` 表示成功，``script`` 为生成的 JKS 脚本字符串。
+**返回值：** 元组 ``(errno, script)`` ， ``errno`` 为 ``ERR_SUCC`` 表示成功， ``script`` 为生成的 JKS 脚本字符串。
 
 **示例：**
 
